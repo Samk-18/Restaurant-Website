@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+
+    body {
+      background-image: url("C.jpg");
+      background-size: cover;
+      background-color: #000000;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #333;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-size: 20px;
+    }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up Form</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script>
+    function checkAvailability() 
+    {
+      alert("Collage Is Available!");
+    }
+</script>
+</head>
+<body>
+<form onsubmit="event.preventDefault(); checkAvailability();">
+
+    <div class="signup-form bg-dark">
+
+        <div class="Signup-head bg-warning">
+            <h1>Collage Booking</h1>
+        </div>
+        <div>
+            <label class="text-white" style="margin-left:10px;">Full Name:</label>
+            <input type="Text" class="bg-dark person text-white" placeholder="Your Name"><br>
+        </div>
+
+        <div class="signup-content2">
+            <label class="text-white travel">Catagory:</label>
+            <select class="bg-dark text-white travel2">
+                <option>Select</option>
+                <option>General</option>
+                <option>EWS</option>
+                <option>OBC</option>
+                <option>SC</option>
+                <option>ST</option>
+                <option>NT</option>
+                <option>Other</option>     
+            </select>
+        </div>
+        <div>
+            <label class="text-white" style="margin-left:10px;">State:</label>
+            <input type="text" class="bg-dark person text-white" placeholder="State Name">
+        </div>
+        <div>
+            <label class="text-white travel">Collage Type:</label>
+            <select class="bg-dark text-white travel2">
+                <option>Select</option>
+                <option>IIT</option>
+                <option>NIT</option>
+                <option>IIIT</option>
+            </select>
+        </div>
+        <div>
+            <label class="text-white" style="margin-left:10px;">Persentile:</label>
+            <input type="number" class="bg-dark person text-white" placeholder="Persentile">
+        </div>
+        <div>
+            <label class="text-white" style="margin-left:10px;">All-India Rank:</label>
+            <input type="number" class="bg-dark person text-white" placeholder="Rank">
+        </div>
+        <input type="submit" value="Check Availability" class="submit-btn bg-warning">
+    </div>
+</form>
+</body>
+</html>

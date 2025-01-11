@@ -1,0 +1,128 @@
+<?php include("connect,php"); ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  function welcome(){
+    window.open("UniSearch.html");
+  }
+</script>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+h2 {
+      text-align: center;
+      font-size: 48px;
+      color: black;
+      margin-top: 200px;
+    }
+
+/* Style inputs */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=button] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=button]:hover {
+  background-color: #45a049;
+}
+
+/* Style the container/contact section */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+/* Create two columns that float next to eachother */
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div style="text-align:center">
+      <h2>Please Register Yourself Here</h2>
+      <p>For Using This Site, Tell Us About Yourself First</p>
+    </div>
+    <div class="row">
+      <div class="column">
+        <img src="b.webp" style="width:100%">
+      </div>
+      <div class="column">
+        <form action="connect.php" method="POST">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Your name.." name="firstname" />
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Your last name.." name="lastname" />
+          <label for="lname">Phone Number</label>
+          <input type="text" id="lname" placeholder="Number.." name="Number" />
+          <label for="fname">Your E-mail ID</label>
+          <input type="text" id="fname" placeholder="Email.." name="Email" />
+          <label for="Country">Country</label>
+          <input type="text" id="fname" placeholder="Country" name="Country" />
+          <label for="collage">Collage</label>
+          <input type="text" id="fname" placeholder="Collage" name="Collage" />
+          <button onclick="welcome()" input type="button" name="registration">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<?php
+  if($_POST['registration']){
+	  $firstname = $_POST['firstname'];
+	  $lastname = $_POST['lastname'];
+	  $Number = $_POST['Number'];
+	  $Email = $_POST['Email'];
+	  $country = $_POST['Country'];
+	  $Collage = $_POST['Collage'];
+
+      $query = INSERT INTO registration values('$firstname', '$lastname', '$Number', '$Email', '$Country', '$Collage');
+      $data = mysqli_query($conn,$query);
+      if($data){
+        echo "Data Inserted into Database";
+      }
+      else{
+        echo "Failed";
+      }
+  }

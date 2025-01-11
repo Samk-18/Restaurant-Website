@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+
+    body {
+      background-image: url("Back.webp");
+      background-size: cover;
+      background-color: #000000;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #333;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-size: 20px;
+    }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up Form</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script>
+    function checkAvailability() 
+    {
+      alert("The Room Is Available!");
+    }
+</script>
+</head>
+<body>
+<form onsubmit="event.preventDefault(); checkAvailability();">
+
+    <div class="signup-form bg-dark">
+
+        <div class="Signup-head bg-warning">
+            <h1>Room Booking</h1>
+        </div>
+
+        <div class="signup-content">
+            <input type="radio" class="radio" name="r">
+            <label class="text-white">AC</label>
+            <input type="radio" class="radio" name="r">
+            <label class="text-white">Non AC</label>
+        </div>
+
+        <div class="signup-content2">
+            <label class="text-white travel"> Beach City:</label>
+            <select class="bg-dark text-white travel2">
+                <option>Select</option>
+                <option>Mumbai</option>
+                <option>Goa</option>
+                <option>Gujrat</option>
+                <option>Chennai</option>
+                <option>Kolkata</option>
+                <option>Kochi</option>
+            </select>
+        </div>
+        <div>
+            <label class="text-white" style="margin-left:10px;">From:</label>
+            <input type="date" class="tarikh bg-dark text-white">
+            <label class="text-white" style="margin-left:10px;">To:</label>
+            <input type="date" class="tarikh bg-dark text-white">
+        </div>
+        <div>
+            <label class="text-white" style="margin-left:10px;">Guests:</label>
+            <input type="number" class="bg-dark person text-white" placeholder="Adults">
+            <input type="number" class="bg-dark person text-white" placeholder="Children"><br>
+        </div>
+        <div>
+            <label class="text-white travel"> Travel Class:</label>
+            <select class="bg-dark text-white travel2">
+                <option>Select</option>
+                <option>One Bed</option>
+                <option>Two Bed</option>
+                <option>Single Bed</option>
+                <option>Twin Bed Room</option>
+                <option>VIP Room</option>
+                <option>Business Class Room</option>
+            </select>
+        </div>
+        <input type="submit" value="Check Availability" class="submit-btn bg-warning">
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booking Collage</title>
+  <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+  <style>
+    body {
+      background-image: url("B.jpg");
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 50px;
+      color: black;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="date"] {
+      width: 250px;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      border: none;
+      background-color: white;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    input[type="date"]:focus {
+      outline: none;
+      background-color: #d1d1d1;
+    }
+
+    input[type="submit"] {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #8d4ee6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Collage Booking Form</h1>
+  <form action="reservation.php" method="post">
+    <label for="name"> Your Name:
+    <input type="text" id="name" name="name" required></label><br>
+
+    <label for="email">Your E-mail ID:
+      <input type="email" id="email" name="email" required></label><br>
+
+      <label for="phone">Phone Number:
+        <input type="text" id="phone" name="phone" required><br>
+
+    <div class="signup-content2">
+      <label class="text-white travel">Catagory:
+        <select class="bg-dark text-white travel2">
+          <option>Select</option>
+          <option>General</option>
+          <option>EWS</option>
+          <option>OBC</option>
+          <option>SC</option>
+          <option>ST</option>
+          <option>NT</option>
+          <option>Other</option>     
+        </select>
+  </div>
+  <div>
+    <label for="name">State:
+      <input type="text" id="State" name="State" required></label><br>
+</div>
+<div>
+    <label class="text-white travel">Collage Type:
+      <select class="bg-dark text-white travel2">
+        <option>Select</option>
+        <option>IIT</option>
+        <option>NIT</option>
+        <option>IIIT</option>
+      </select>
+</div>
+<div>
+  <label for="name">Persentile:
+    <input type="number" id="Persentile" name="Persentile" required></label><br>
+</div>
+<div>
+  <label for="name">All-India Rank:
+    <input type="number" id="Rank" name="Rank" required></label><br>
+</div>
+    <input type="submit" value="Book Now" class="submit-btn bg-warning">
+  </form>
+
+  <script>
+    document.getElementById("reservationForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      var name = document.getElementById("name").value;
+      var checkIn = document.getElementById("checkIn").value;
+      var checkOut = document.getElementById("checkOut").value;
+      var mobile = document.getElementById("mobile").value;
+      var room = document.getElementById("room").value;
+      var email = document.getElementById("email").value;
+
+      var data = [
+        ["Name", "Check-in Date", "Check-out Date", "Mobile Number", "Room Number", "Email"],
+        [name, checkIn, checkOut, mobile, room, email]
+      ];
+
+      var ws = XLSX.utils.aoa_to_sheet(data);
+      var wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Reservation");
+
+      var currentDate = new Date();
+      var fileName = "reservation_" + currentDate.getTime() + ".xlsx";
+      XLSX.writeFile(wb, fileName);
+      
+      alert("Reservation details have been saved to " + fileName);
+    });
+  </script>
+</body>
+</html>
